@@ -88,7 +88,17 @@ function Player() {
         this.bullets[this.bullets.length] = new Bullet();
     }
 }
-
+requestAnimFrame =  window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+                        function(callback) {
+                            window.setTimeout(callback, 1000 / 60);
+                        },
+    imgSprite = new Image();
+imgSprite.src = "images/sprite.png";
+imgSprite.addEventListener("load", init, false);
 Player.prototype.update = function () {
     this.centerX = this.drawX + (this.width / 2);
     this.centerY = this.drawY + (this.height / 2);
@@ -169,6 +179,17 @@ Player.prototype.updateAllBullets = function () {
         }
     }
 };
+requestAnimFrame =  window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+                        function(callback) {
+                            window.setTimeout(callback, 1000 / 60);
+                        },
+    imgSprite = new Image();
+imgSprite.src = "images/sprite.png";
+imgSprite.addEventListener("load", init, false);
 
 Player.prototype.drawAllBullets = function () {
     for (var i = 0; i < this.bullets.length; i++) {
